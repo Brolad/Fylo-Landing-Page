@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
+
+  <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
+  <link rel="stylesheet" href="style.css">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap" rel="stylesheet">
+
+<link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+  
+  <title>Fylo Landing Page</title>
+</head>
+<body>
+
+
+      <!--navbar-->
+    <section class="header">
+      <nav>
+        <a href="index.html"><img src="images/logo.png" alt=""></a>
+        <div class="nav-links" id="navLinks">
+          <i class='bx bx-x' onclick="hideMenu()"></i>
+          <ul>
+            <li><a href="">Features</a></li>
+            <li><a href="">Team</a></li>
+            <li><a href="">Sign in</a></li>
+          </ul>
+        </div>
+        <i class='bx bx-menu-alt-right' onclick="showMenu()"></i>
+      </nav>
+    </section>
+
+
+    <!--Header-->
+    <section class="home" id="home">
+      <div class="content">
+        <h1>All your files in one secure location, accessible anywhere.</h1>
+        <p>Fylo stores your most important files in one secure location. 
+          Access them wherever you need, share and collaborate with friends, 
+          family, and co-workers.</p>
+          <input type="email" id="email" placeholder="Enter your email">
+        <button onclick="validateEmail()">Get Started</button>
+        <span id="error-message"></span>
+        <span id="error-border"></span>
+      </div>
+
+      <div class="home-img">
+        <img src="images/illustration-1.png" alt="">
+      </div>
+      </section>
+
+
+    <!--body-->
+    <section class="body">
+      <div class="content">
+        <h1>Stay productive, wherever you are</h1>
+        <p>Never let location be an issue when accessing your files. Fylo has you covered for all of your file storage needs.</p>
+        <p>
+          Securely share files and folders with friends, family and colleagues for live collaboration. No email attachments required!</p>
+          <div class="link">
+          <ul>
+          <li><a href="">See how Fylo Works <i class='bx bxs-check-circle'></i></a></li>
+          </ul>
+          </div>
+          <div class="comment-box">
+            <p class="quote"><i class='bx bxs-quote-left' ></i><br>Fylo has improved our team productivity by an order of magnitude. Since making the switch our team has become a well-oiled collaboration machine.</p>
+            <div class="author-info">
+                <img src="images/avatar-testimonial.jpg" alt="Author's Photo" class="author-photo">
+                <div class="author-details">
+                    <h4>Kyle Burton</h4>
+                    <p>Founder & CEO, Huddle</p>
+                </div>
+            </div>
+        </div>
+          </div>
+
+
+          <div class="body-img">
+            <img src="images/illustration-2.png" alt="">
+          </div>
+    </section>
+
+
+    
+    <section class="footer1" id="footer">
+      <div class="footent">
+        <h1>Get accesss today</h1>
+        <p>It only takes a minute to sign up and our free starter tier is extremely generous. 
+          If you have any questions, our support team would be happy to help you.</p>
+      </div>
+      <div class="signup-form">
+      <input type="email" id="email" placeholder="Enter your email" class="email-input">
+        <button onclick="validateEmail()">Get Started For Free</button>
+        <span id="error-message"></span>
+        <span id="error-border"></span>
+        </div>
+      </section>
+
+      <section>
+        <footer >
+          <div class="container">
+            <div class="logo">
+              <img src="images/logo.png" alt="">
+              <br>
+            </div>
+            <div class="footer-grid">
+              <div class="column">
+                <div class="contact-item">
+                  
+                  <p><img src="images/icon-phone.png" alt="Phone">&nbsp;&nbsp;&nbsp;&nbsp;Phone: +1-543-123-4567</p>
+                </div>
+                <div class="contact-item">
+                  <br>
+                  <p><img src="images/icon-email.png" alt="Email">&nbsp;&nbsp;&nbsp;&nbsp;example@fylo.com</p>
+                </div>
+              </div>
+              <div class="column">
+                <a href="#">About Us</a>
+                <a href="#">Jobs</a>
+                <a href="#">Press</a>
+                <a href="#">Blog</a>
+              </div>
+              <div class="column">
+                <a href="#">Contact Us</a>
+                <a href="#">Terms</a>
+                <a href="#">Privacy</a>
+              </div>
+              <div class="column">
+                <i class='bx bxl-facebook'></i>
+                <i class='bx bxl-twitter' ></i>
+                <i class='bx bxl-instagram' ></i>
+                </div>
+              </div>
+          </div>
+      </footer>
+      </section>
+
+
+
+    <script>
+      var navLinks = document.getElementById("navLinks");
+
+      function showMenu() {
+        navLinks.style.right = "0";
+      }
+
+      function hideMenu() {
+        navLinks.style.right = "-200px";
+      }
+
+
+      function validateEmail() {
+    const emailInput = document.getElementById('email');
+    const errorMessage = document.getElementById('error-message');
+
+    // Simple email validation regex pattern
+    const emailPattern = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+
+    if (emailInput.value === "") {
+        errorMessage.textContent = "Please check your email!";
+        errorMessage.style.display = "block";
+        emailInput.classList.add('error-border');
+    } else if (!emailPattern.test(emailInput.value)) {
+        errorMessage.textContent = "Please check your email!";
+        errorMessage.style.display = "block";
+        emailInput.classList.add('error-border');
+    } else {
+        errorMessage.style.display = "none";
+        emailInput.classList.remove('error-border');
+        // Proceed with form submission or any other action
+        alert("Email is valid! Proceeding...");
+    }
+}
+
+
+    </script>
+</body>
+</html>
